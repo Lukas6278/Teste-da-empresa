@@ -1,0 +1,9 @@
+name = "meu-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "acessos_db"
+database_id = "31b5e66f-45a4-4324-a163-40b390ff2a87"
+
