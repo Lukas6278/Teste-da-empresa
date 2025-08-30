@@ -49,3 +49,28 @@ env.DB    acessos_db   local
 ## Publicando no Cloudflare
 wrangler deploy
 e y para subir e n para deixar localmente
+
+
+## Criar a database (se ainda não existir):
+
+wrangler d1 create acessos_db (ou qualquer nome que prefira)
+
+Se você já recebeu A database with that name already exists, pode pular essa etapa.
+
+## Adicionar binding no wrangler.toml (exemplo já mostrado acima):
+
+[[d1_databases]]
+binding = "DB"
+database_name = "acessos_db"
+
+## Criar a tabela acessos (use o painel Cloudflare D1 SQL editor ou execute o SQL via CLI / migrations). Exemplo de SQL:
+
+CREATE TABLE IF NOT EXISTS acessos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ip TEXT,
+  userAgent TEXT,
+  language TEXT,
+  date TEXT
+);
+
+Você pode executar esse SQL pelo editor D1 (no dashboard Cloudflare) ou via CLI/migration — se preferir, posso te orientar com o comando exato para CLI.
